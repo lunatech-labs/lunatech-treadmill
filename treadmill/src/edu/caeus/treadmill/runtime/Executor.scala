@@ -1,4 +1,4 @@
-package edu.caeus.talehub.runtime
+package edu.caeus.treadmill.runtime
 
 import scala.language.higherKinds
 import scala.util.control.NonFatal

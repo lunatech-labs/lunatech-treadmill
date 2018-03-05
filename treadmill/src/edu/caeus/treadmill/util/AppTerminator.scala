@@ -1,4 +1,4 @@
-package edu.caeus.talehub.util
+package edu.caeus.treadmill.util
 
 import java.util.concurrent.atomic.AtomicReference
 import java.util.function.UnaryOperator

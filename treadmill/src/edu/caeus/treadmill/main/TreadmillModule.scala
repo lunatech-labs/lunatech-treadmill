@@ -1,15 +1,15 @@
-package edu.caeus.talehub.main
+package edu.caeus.treadmill.main
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import edu.caeus.talehub.routes.Routes
-import edu.caeus.talehub.util.AppTerminator
+import edu.caeus.treadmill.routes.Routes
+import edu.caeus.treadmill.util.AppTerminator
 
 import scala.concurrent.ExecutionContext
 
 
-class TalehubModule {
+class TreadmillModule {
 
   implicit lazy val terminator = new AppTerminator
 
@@ -21,7 +21,7 @@ class TalehubModule {
 
   implicit lazy val materializer: ActorMaterializer = ActorMaterializer()
 
-  implicit lazy val httpRoutes = Routes()
+  lazy val httpRoutes = Routes()
 
 
   lazy val eventualHttpBinding = Http().bindAndHandle(httpRoutes, "localhost", 9000)
@@ -32,9 +32,9 @@ class TalehubModule {
 
 }
 
-object TalehubModule {
+object TreadmillModule {
   def start() = {
-    new TalehubModule().start()
+    new TreadmillModule().start()
   }
 }
 

@@ -19,9 +19,8 @@ object treadmill extends ScalaModule {
 
   object test extends Tests {
     override def ivyDeps = Agg(ivy"com.lihaoyi::utest:0.6.0",
-      ivy"org.scalatest::scalatest:3.0.5",
       ivy"com.typesafe.akka::akka-http-testkit:10.0.11")
 
-    def testFrameworks = Seq("org.scalatest.tools.Framework")
+    def testFrameworks = Seq("utest.runner.Framework")
   }
 }

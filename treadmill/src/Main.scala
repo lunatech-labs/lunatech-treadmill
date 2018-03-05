@@ -1,10 +1,10 @@
-import edu.caeus.talehub.main.TalehubModule
+import edu.caeus.treadmill.main.TreadmillModule
 
 object Main {
 
 
   def main(args: Array[String]): Unit = {
-    TalehubModule.start()
+    TreadmillModule.start()
 
   }
 }
