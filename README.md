@@ -31,7 +31,6 @@ Mill tackles tries to tackle those problems taking ideas from other build system
 That being said, I will just try to use mill to create a project of my own, to see how it falls short and where it shines.
 
 ###The project
-
 I won't explain the details of the project because this project is mainly about exploring Mill. Just assume it's a normal RESTful server with UI.
 
 ###The journal...

@@ -4,7 +4,7 @@ import mill.define.Target
 import mill.scalalib._
 
 
-object talehub extends ScalaModule {
+object treadmill extends ScalaModule {
   override def scalaVersion = "2.12.4"
 
 
@@ -16,6 +16,7 @@ object talehub extends ScalaModule {
     ivy"com.lihaoyi::upickle:0.5.1",
     ivy"com.typesafe.akka::akka-http:10.0.11"
   )
+
   object test extends Tests {
     override def ivyDeps = Agg(ivy"com.lihaoyi::utest:0.6.0",
       ivy"org.scalatest::scalatest:3.0.5",
