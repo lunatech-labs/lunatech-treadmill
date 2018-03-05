@@ -6,7 +6,7 @@ I'm going to give my own understanding of the problem, and try to use his propos
 
 That being said, for me, the biggest problem is that makes you mix two different language in the same file without you noticing it. Look, many would say that it's Scala, but it's not. an SBT is both, the SBT language instructions, and Scala manipulating them. Check this.
 
-```$scala
+```scala
 lazy val sbtInstruction1 = (scalacOptions := Seq("-Ywarn-unused:imports"))
 lazy val sbtInstruction2  = (scalacOptions += "-Ypartial-unification")
 
@@ -30,10 +30,10 @@ Mill tackles tries to tackle those problems taking ideas from other build system
 
 That being said, I will just try to use mill to create a project of my own, to see how it falls short and where it shines.
 
-###The project
+### The project
 I won't explain the details of the project because this project is mainly about exploring Mill. Just assume it's a normal RESTful server with UI.
 
-###The journal...
+### The journal...
 
 - First day, there's no "mill new" command, darn.
 - Playframework is an sbt plugin, Akka Http will be.
@@ -50,7 +50,8 @@ I won't explain the details of the project because this project is mainly about 
 - Given that modules are just plain scala objects that extend the mill.Module class, I can already tell that you cannot do hot replacement of variables [as in SBT](https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html#Commands+for+managing+the+build+definition). That's because once created an object, it cannot be modified. But who uses that anyway?
 
 
-###Conclusion
+### Conclusion
+
 So I haven't got the chance to test everything but I certainly like this build system. Mainly I liked the design decisions and the fact that it's just plain Scala. Easy to navigate the sourcecode, easy to extend and very very very straightforward. I would have liked to create a custom Task, but I didn't have the task. Yet, as I was thinking of integrating webpack for the UI, I stumbled upon [this](https://twitter.com/li_haoyi/status/969776409924153346) and so I assume it will be equally easy.
 I faced many problems that all can be reduced to the fact that it's a young tool. Yet I'm confided it will replace SBT. (Fixing SBT looks too difficult to achieve)
 
