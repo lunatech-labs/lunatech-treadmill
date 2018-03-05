@@ -52,7 +52,7 @@ I won't explain the details of the project because this project is mainly about 
 
 ### Conclusion
 
-So I haven't got the chance to test everything but I certainly like this build system. Mainly I liked the design decisions and the fact that it's just plain Scala. Easy to navigate the sourcecode, easy to extend and very very very straightforward. I would have liked to create a custom Task, but I didn't have the task. Yet, as I was thinking of integrating webpack for the UI, I stumbled upon [this](https://twitter.com/li_haoyi/status/969776409924153346) and so I assume it will be equally easy.
+So I haven't got the chance to test everything but I certainly like this build system. Mainly I liked the design decisions and the fact that it's just plain Scala. Easy to navigate the sourcecode, easy to extend and very very very straightforward. I would have liked to create a custom Task, but I didn't have the time. Yet, as I was thinking of integrating webpack for the UI, I stumbled upon [this](https://twitter.com/li_haoyi/status/969776409924153346) and so I assume it will be equally easy.
 I faced many problems that all can be reduced to the fact that it's a young tool. Yet I'm confided it will replace SBT. (Fixing SBT looks too difficult to achieve)
 
 
