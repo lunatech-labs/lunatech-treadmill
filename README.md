@@ -26,7 +26,7 @@ Among more problems, like a flat scope for variables (so if you create a plugin 
 
 Anyway, just go and read the article, it's super cool, and super explanatory. I'm pretty sure you'll understand SBT better by reading it... and then hate it for the right reasons.
 
-Mill tackles tries to tackle those problems taking ideas from other build systems that Li Haoyi found cool. There's only one layer of abstraction living in the build file, which helps to create the second layer. Not two living there, to create the third (like SBT). It just leverages the scala language and the ammonite scala console (made by Li Haoyi himself), to do a very straightforward and proactively designed tool for building ANY kind of project (meaning scala projects, mainly).
+Mill tackles those problems taking ideas from other build systems that Li Haoyi found cool. There's only one layer of abstraction living in the build file, which helps to create the second layer. Not two living there, to create the third (like SBT). It just leverages the scala language and the ammonite scala console (made by Li Haoyi himself), to do a very straightforward and proactively designed tool for building ANY kind of project (meaning scala projects, mainly).
 
 That being said, I will just try to use mill to create a project of my own, to see how it falls short and where it shines.
 

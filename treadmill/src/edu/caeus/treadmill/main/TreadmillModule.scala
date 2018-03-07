@@ -3,6 +3,8 @@ package edu.caeus.treadmill.main
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
+import edu.caeus.treadmill.controllers.SheetCtrl
+import edu.caeus.treadmill.logic.{SessionManager, SheetEngine}
 import edu.caeus.treadmill.routes.Routes
 import edu.caeus.treadmill.util.AppTerminator
 
@@ -17,12 +19,16 @@ class TreadmillModule {
 
   implicit lazy val actorSystem: ActorSystem = ActorSystem()
     .closeAsyncWith(_.terminate())
+
   implicit lazy val executionContext: ExecutionContext = actorSystem.dispatcher
 
   implicit lazy val materializer: ActorMaterializer = ActorMaterializer()
+  lazy val sessionManager = new SessionManager()
+  lazy val sheetEngine = new SheetEngine()
 
-  lazy val httpRoutes = Routes()
+  lazy val sheetCtrl = new SheetCtrl(sheetEngine, sessionManager)
 
+  lazy val httpRoutes = Routes(sheetCtrl)
 
   lazy val eventualHttpBinding = Http().bindAndHandle(httpRoutes, "localhost", 9000)
     .closeAsyncWith(_.flatMap(_.unbind()))

@@ -8,6 +8,15 @@ case class Sheet(name: String, data: Js.Value) {
 
 }
 
+case class SheetRef()
+object SheetRef {
+
+
+  implicit def writer: Writer[SheetRef] = macroW
+}
+
+case class SheetOp()
+
 object Sheet {
   implicit def reader: Reader[Sheet] = macroR
 
