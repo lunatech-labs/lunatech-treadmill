@@ -20,18 +20,18 @@ object Routes {
 
   def apply(sheetCtrl: SheetCtrl): Route = {
     pathPrefix("v1") {
-      pathPrefix("sheet") {
-        (pathEnd & post) {
-          handleReq(sheetCtrl.create)
+      pathPrefix("sheets") {
+        (path(Segment) & put) { sheetId =>
+
+          handleReq(sheetCtrl.create(sheetId))
         } ~
           (path(Segment) & get) { sheetId =>
             handleReq(sheetCtrl.byId(sheetId))
           } ~
-          post {
-            complete("hola")
+          (path(Segment / "updates") & post) { sheetId =>
+            handleReq(sheetCtrl.update(sheetId))
           }
       }
-
     }
   }
 

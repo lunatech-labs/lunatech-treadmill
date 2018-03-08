@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import edu.caeus.treadmill.controllers.SheetCtrl
-import edu.caeus.treadmill.logic.{SessionManager, SheetEngine}
+import edu.caeus.treadmill.logic.SheetEngine
 import edu.caeus.treadmill.routes.Routes
 import edu.caeus.treadmill.util.AppTerminator
 

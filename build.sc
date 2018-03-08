@@ -13,8 +13,8 @@ object treadmill extends ScalaModule {
 
   override def ivyDeps = Agg(
     ivy"com.lihaoyi::upickle:0.5.1",
-    ivy"com.typesafe.akka::akka-http:10.0.11",
-    ivy"org.typelevel::cats-core:1.0.1"
+    ivy"com.typesafe.akka::akka-http:10.0.11"
+    //,    ivy"org.typelevel::cats-core:1.0.1"
   )
 
   object test extends Tests {

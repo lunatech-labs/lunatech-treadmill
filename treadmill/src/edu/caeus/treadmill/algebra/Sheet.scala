@@ -16,6 +16,10 @@ object SheetRef {
 }
 
 case class SheetOp()
+object SheetOp {
+  implicit def reader: Reader[SheetOp] = macroR
+}
+
 
 object Sheet {
   implicit def reader: Reader[Sheet] = macroR
