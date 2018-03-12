@@ -8,12 +8,13 @@ object treadmill extends ScalaModule {
   override def scalaVersion = "2.12.4"
 
 
-  override def scalacOptions: Target[Seq[String]] = super.scalacOptions() :+ "-Ypartial-unification"
+  //override def scalacOptions: Target[Seq[String]] = super.scalacOptions() :+ "-Ypartial-unification"
 
 
   override def ivyDeps = Agg(
     ivy"com.lihaoyi::upickle:0.5.1",
-    ivy"com.typesafe.akka::akka-http:10.0.11"
+    ivy"com.typesafe.akka::akka-http:10.0.11",
+    ivy"org.eclipse.jgit:org.eclipse.jgit:4.10.0.201712302008-r"
     //,    ivy"org.typelevel::cats-core:1.0.1"
   )
 

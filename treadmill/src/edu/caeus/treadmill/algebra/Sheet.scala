@@ -4,25 +4,47 @@ package edu.caeus.treadmill.algebra
 import upickle.Js
 import upickle.default.{Reader, macroR, _}
 
-case class Sheet(name: String, data: Js.Value) {
-
-}
-
-case class SheetRef()
-object SheetRef {
-
-
-  implicit def writer: Writer[SheetRef] = macroW
-}
-
-case class SheetOp()
-object SheetOp {
-  implicit def reader: Reader[SheetOp] = macroR
-}
-
+case class Sheet(id: String, data: Js.Value)
 
 object Sheet {
-  implicit def reader: Reader[Sheet] = macroR
+
+  case class Seed(data: Js.Value)
+
+  object Seed {
+    implicit def reader: Reader[Seed] = macroR
+  }
+
+  case class Ref(id: String)
+
+  object Ref {
+    implicit def writer: Writer[Ref] = macroW
+  }
 
   implicit def writer: Writer[Sheet] = macroW
+
+
 }
+
+
+
+
+case class SheetOp(id: String, data: String, diff: String)
+
+object SheetOp {
+
+  case class Seed(data: Js.Value)
+
+  object Seed {
+    implicit def reader: Reader[Seed] = macroR
+  }
+
+  case class Ref(id: String)
+
+  object Ref {
+    implicit def writer: Writer[Ref] = macroW
+  }
+
+  implicit def writer: Writer[SheetOp] = macroW
+}
+
+

@@ -2,27 +2,29 @@ package edu.caeus.treadmill.logic
 
 import edu.caeus.treadmill.algebra._
 import edu.caeus.treadmill.logic.SheetEngine.Res
-import upickle.Js
 
 import scala.concurrent.Future
 
 class SheetEngine {
 
 
-  def create(id: String)(body: Js.Value): Res[SheetRef] = { sessionId =>
-    Future.successful(SheetRef())
+  def create(id: String)(seed: Sheet.Seed): Res[Sheet.Ref] = {
+    Future.successful(Sheet.Ref(id))
   }
 
-  def query: Res[Seq[SheetRef]] = {
-    ???
+  def query: Res[Seq[Sheet.Ref]] = {
+    Future.successful(Nil)
+
   }
 
-  def byId(id: String): Res[Option[Sheet]] = ???
+  def byId(id: String): Res[Option[Sheet]] = {
+    Future.successful(None)
+  }
 
-  def update(id: String)(op: SheetOp): Res[SheetRef] = ???
+  def ops(id: String)(op: SheetOp): Res[Sheet.Ref] = ???
 
 }
 
 object SheetEngine {
-  type Res[+T] = SessionID => Future[T]
+  type Res[+T] = Future[T]
 }

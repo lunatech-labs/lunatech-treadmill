@@ -13,6 +13,9 @@ import scala.concurrent.ExecutionContext
 
 class TreadmillModule {
 
+
+
+
   implicit lazy val terminator = new AppTerminator
 
   import terminator._
@@ -23,10 +26,9 @@ class TreadmillModule {
   implicit lazy val executionContext: ExecutionContext = actorSystem.dispatcher
 
   implicit lazy val materializer: ActorMaterializer = ActorMaterializer()
-  lazy val sessionManager = new SessionManager()
   lazy val sheetEngine = new SheetEngine()
 
-  lazy val sheetCtrl = new SheetCtrl(sheetEngine, sessionManager)
+  lazy val sheetCtrl = new SheetCtrl(sheetEngine)
 
   lazy val httpRoutes = Routes(sheetCtrl)
 
@@ -37,6 +39,7 @@ class TreadmillModule {
 
 
 }
+
 
 object TreadmillModule {
   def start() = {
