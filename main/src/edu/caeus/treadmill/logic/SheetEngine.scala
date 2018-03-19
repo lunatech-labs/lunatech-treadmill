@@ -8,8 +8,8 @@ import scala.concurrent.Future
 class SheetEngine {
 
 
-  def create(id: String)(seed: Sheet.Seed): Res[Sheet.Ref] = {
-    Future.successful(Sheet.Ref(id))
+  def create(seed: Sheet.Seed): Res[Sheet.Ref] = {
+    Future.successful(Sheet.Ref(seed.id))
   }
 
   def query: Res[Seq[Sheet.Ref]] = {

@@ -8,7 +8,8 @@ case class Sheet(id: String, data: Js.Value)
 
 object Sheet {
 
-  case class Seed(data: Js.Value)
+  case class Seed(id: String,
+                  data: Js.Value)
 
   object Seed {
     implicit def reader: Reader[Seed] = macroR
@@ -24,8 +25,6 @@ object Sheet {
 
 
 }
-
-
 
 
 case class SheetOp(id: String, data: String, diff: String)

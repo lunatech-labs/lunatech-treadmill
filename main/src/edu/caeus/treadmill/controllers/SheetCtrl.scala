@@ -24,24 +24,22 @@ class SheetCtrl(sheetEngine: SheetEngine)
       HttpResponse(entity = HttpEntity(contentType = ContentTypes.`application/json`, write(obody)))
   }
 
-  def create(id: String)(req: HttpRequest): Future[HttpResponse] = {
-    withBody(req)(sheetEngine.create(id))
+  def set(req: HttpRequest): Future[HttpResponse] = {
+    withBody(req)(sheetEngine.create)
   }
 
-  def update(id: String)(req: HttpRequest): Future[HttpResponse] = {
-    withBody(req)(sheetEngine.update(id))
-  }
+
 
   def query(req: HttpRequest): Future[HttpResponse] = {
     for {
-      obody <- sheetEngine.query()
+      obody <- sheetEngine.query
     } yield
       HttpResponse(entity = HttpEntity(contentType = ContentTypes.`application/json`, write(obody)))
   }
 
   def byId(id: String)(req: HttpRequest): Future[HttpResponse] = {
     for {
-      obody <- sheetEngine.byId(id)().flatMap {
+      obody <- sheetEngine.byId(id).flatMap {
         case Some(body) => Future.successful(body)
         case None => Future.failed(ResourceNotFoundException())
       }

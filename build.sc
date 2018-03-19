@@ -4,7 +4,7 @@ import mill.define.Target
 import mill.scalalib._
 
 
-object treadmill extends ScalaModule {
+object main extends ScalaModule {
   override def scalaVersion = "2.12.4"
 
 
