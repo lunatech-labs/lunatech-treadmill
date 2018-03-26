@@ -37,6 +37,8 @@ object GitRepoTransactor {
 
   case class Tx[T](op: Op[T]) extends TypedAsk[T]
 
+
+
   type Op[T] = Free[Alg, T]
 
   sealed trait Alg[T] {
