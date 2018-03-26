@@ -7,8 +7,8 @@ I'm going to give my own understanding of the problem, and try to use his propos
 That being said, for me, the biggest problem is that it makes you mix two different languages in the same file without you noticing it. Look, many would say that it's Scala, but it's not. A SBT file has both, the SBT language instructions, and Scala manipulating them. Check this.
 
 ```Scala
-lazy val sbtInstruction1 = (ScalacOptions := Seq("-Ywarn-unused:imports"))
-lazy val sbtInstruction2  = (ScalacOptions += "-Ypartial-unification")
+lazy val sbtInstruction1 = (scalacOptions := Seq("-Ywarn-unused:imports"))
+lazy val sbtInstruction2  = (scalacOptions += "-Ypartial-unification")
 
 lazy val root=(project in file("."))
 .settings(
